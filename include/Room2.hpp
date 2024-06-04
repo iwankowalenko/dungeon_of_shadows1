@@ -5,17 +5,17 @@
 
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
 
 class Room2 {
 public:
-	Room1() = default;
-
-	Room1(const Room1& other) = delete;
-
-	void initDialog(Hero& hero);
-	void ReadFile1(Hero& hero);
-
+	void initDialog(Hero& hero, bool& gameOver, std::unordered_map<int, bool>& roomVisited);
 private:
-	void battleAndSave(Hero& hero, Bat& bat);
+	void battleAndSave(Hero& hero, Bat& bat, bool& gameOver);
+	void ReadFile2(Hero& hero, bool& gameOver, std::unordered_map<int, bool>& roomVisited);
+	enum COMMAND {
+		FIGHT_BEGIN = 1,
+		FIGHT_END = 2
+	};
 };

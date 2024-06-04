@@ -4,12 +4,12 @@
 #include <iostream>
 
 void saveHeroToFile(const Hero& hero) {
-    std::ofstream file("progress.txt");
+    std::ofstream file("hero.txt");
 
     if (file.is_open()) {
-        file << hero.GetHP() << std::endl;
-        file << hero.GetEXP() << std::endl;
-        file << hero.GetDamage() << std::endl;
+        file << hero.GetHP() << " ";
+        file << hero.GetEXP() << " ";
+        file << hero.GetDamage() << " ";
         //file << hero.m_alive << std::endl;
 
         file.close();

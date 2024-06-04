@@ -1,37 +1,34 @@
 #pragma once
 
-#include <iostream>
-#include <vector>
-
+#include <string>
+#include <unordered_map>
 
 class Hero {
 public:
-	Hero() = default;
+    Hero(unsigned HP = 100, unsigned EXP = 0, unsigned Damage = 10);  // конструктор по умолчанию добавлен
 
-	Hero(unsigned HP, unsigned EXP, unsigned Damage) {
-		m_HP = HP;
-		m_EXP = EXP;
-		m_Damage = Damage;
-	}
+    unsigned GetHP() const;
+    unsigned GetEXP() const;
+    unsigned GetDamage() const;
+    unsigned GetMaxHP() const;
 
-	unsigned GetHP() const;
+    void SetHP(unsigned hp);
+    void SetEXP(unsigned exp);
 
-	unsigned GetEXP() const;
+    bool isAlive() const;
 
-	unsigned GetDamage() const;
+    void printCharacteristic() const;
 
-	void printCharacteristic() const;
+    void takingDamage(unsigned Damage);
+    void gainExperience(unsigned EXP);
 
-	void takingDamage(unsigned Damage);
+    void saveToFile(const std::string& filename, const std::unordered_map<int, bool>& roomVisited) const;
+    void loadFromFile(const std::string& filename, std::unordered_map<int, bool>& roomVisited);
 
-	bool isAlive() const {
-		return m_alive;
-	}
 private:
-	unsigned m_HP;
-	unsigned m_EXP;
-	unsigned m_Damage;
-
-	bool m_alive = true;
-
+    unsigned m_HP;
+    unsigned m_EXP;
+    unsigned m_Damage;
+    unsigned m_MaxHP;  // Добавляем поле для максимального HP
+    bool m_alive;
 };

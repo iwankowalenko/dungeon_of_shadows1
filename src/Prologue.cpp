@@ -38,7 +38,7 @@ void printNextLineFromFile() {
                 }
                 else if (decision == "искать") {
                     std::cout << "  черту, пойду в деревню от этой чертовщины!" << std::endl;
-                    std::cout << "“олько € побежал из этого леса, как вдруг все стало черным" << std::endl;
+                    std::cout << "Ќо что-то мен€ остановило, а именно странное си€ющее дерево" << std::endl;
                     continueReading = true;
                     validInput = true;
                 }

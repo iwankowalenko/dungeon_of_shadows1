@@ -29,9 +29,9 @@ public:
   }
 
 private:
-  unsigned m_HP = 20;
-  unsigned m_EXP = 5;
-  unsigned m_Damage = 5;
+  unsigned m_HP = 30;
+  unsigned m_EXP = 65;
+  unsigned m_Damage = 15;
 
   bool m_alive = true;
 };
@@ -53,8 +53,8 @@ public:
   }
 
 private:
-  unsigned m_HP = 10;
-  unsigned m_EXP = 15;
+  unsigned m_HP = 30;
+  unsigned m_EXP = 55;
   unsigned m_Damage = 10;
 
   bool m_alive = true;
@@ -77,8 +77,8 @@ public:
   }
 
 private:
-  unsigned m_HP = 20;
-  unsigned m_EXP = 35;
+  unsigned m_HP = 50;
+  unsigned m_EXP = 80;
   unsigned m_Damage = 10;
 
   bool m_alive = true;
@@ -98,8 +98,32 @@ public:
 
 private:
   unsigned m_HP = 50;
-  unsigned m_EXP = 70;
+  unsigned m_EXP = 90;
   unsigned m_Damage = 45;
 
   bool m_alive = true;
+};
+
+class Snake : public Enemy {
+public:
+    unsigned GetHP() const override;
+
+    unsigned GetEXP() const override;
+
+    unsigned GetDamage() const override;
+
+    void printCharacteristic() const override;
+
+    void takingDamage(unsigned Damage) override;
+
+    bool isAlive() const {
+        return m_alive;
+    }
+
+private:
+    unsigned m_HP = 100;
+    unsigned m_EXP = 200;
+    unsigned m_Damage = 15;
+
+    bool m_alive = true;
 };

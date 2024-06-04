@@ -1,40 +1,39 @@
 #pragma once
 
 #include <string>
+#include "Hero.hpp" // Убедитесь, что путь к Hero.hpp правильный
 
 class Riddles {
 public:
-  virtual ~Riddles();
+    virtual ~Riddles() = default;
 
-  virtual void printRiddle() const = 0;
-  virtual bool isTrue(std::string &UserAnswer) const = 0;
+    virtual void printRiddle() const = 0;
+    virtual bool isTrue(std::string& UserAnswer, Hero& hero) const = 0;
 
 protected:
-  static std::string &m_lower(std::string &Line);
+    static std::string& m_lower(std::string& Line);
 };
 
 class RiddleBed : public Riddles {
 public:
-  void printRiddle() const override;
-  bool isTrue(std::string &UserAnswer) const override;
+    void printRiddle() const override;
+    bool isTrue(std::string& UserAnswer, Hero& hero) const override;
 
 private:
-  std::string m_answer = "кровать";
+    std::string m_answer = "bed";
 
-  std::string m_Riddle =
-      "Утром с ней прощаюсь, \n вечером встречаюсь, \n С ней я к полу ниже, \n "
-      "Она всех мне ближС ней я к полу ниже, \n Она всех мне ближС ней я к "
-      "полу ниже, \n Она всех мне ближе. ";
+    std::string m_Riddle =
+        "In the morning I say goodbye to her, in the evening I meet her, I'm closer to the floor than she is to me.";
 };
 
 class RiddleBook : public Riddles {
 public:
-  void printRiddle() const override;
-  bool isTrue(std::string &UserAnswer) const override;
+    void printRiddle() const override;
+    bool isTrue(std::string& UserAnswer, Hero& hero) const override;
 
 private:
-  std::string m_answer = "книга";
 
-  std::string m_Riddle = "Они могут рассказать всё обо всём, \n Но не "
-                         "произнесут при этом ни слова. ";
+    std::string m_answer = "book";
+
+    std::string m_Riddle = "They can tell you everything about everything, but they won't say a word.";
 };
